@@ -29,7 +29,8 @@ const config = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'sass-loader'
+          'sass-loader',
+          'style-loader'
         ]
       },
       {
@@ -45,18 +46,17 @@ const config = {
       }
     ]
   },
+
   devServer:{
+    historyApiFallback: true,
     static:{
-        directory: path.join(__dirname),
+      directory: path.join(__dirname),
     },
     proxy: {
-        '/api':'http://localhost:3000'
+      '/':'http://localhost:3000'
     },
-    compress: true,
-    port: 8080,
-    hot:true,
-  
   },
+
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './client/index.html')
