@@ -4,6 +4,8 @@ const path = require('path');
 const app = express();
 //require routers
 const loginRouter = require('./routes/loginRoute');
+const signupRouter = require('./routes/signupRoute');
+const productsRouter = require('./routes/productsRoute');
 
 //parse request body
 app.use(express.json());
@@ -17,6 +19,9 @@ app.use('/test', (req, res) => {
 });
 
 app.use('/login', loginRouter);
+app.use('/signup', signupRouter);
+app.use('/products', productsRouter);
+
 
 
 
