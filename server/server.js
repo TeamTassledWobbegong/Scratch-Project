@@ -24,9 +24,6 @@ app.use('/api/login', loginRouter);
 // app.use('/signup', signupRouter);
 // app.use('/products', productsRouter);
 
-
-
-
 // catch-all route handler for any requests to an unknown route
 app.use((req, res) => res.status(404).send('Error: Page not found'));
 
