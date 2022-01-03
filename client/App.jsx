@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './style/App.css';
 
@@ -11,6 +11,15 @@ import Products from './containers/products.js';
 import Login from './containers/login.js';
 
 function App() {
+
+  useEffect(() => {
+    fetch('/login')
+      .then(data => data.json())
+      .then(data => {
+        console.log(data.body);
+      });
+  }, []);
+
   return (
     <div className='app'>
       <Router>

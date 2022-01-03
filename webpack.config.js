@@ -44,11 +44,14 @@ const config = {
 
   devServer: {
     historyApiFallback: true,
+    port: 8080,
     static: {
-      directory: path.join(__dirname),
+      directory: path.join(__dirname, './client'),
+      publicPath: '/',
     },
     proxy: {
       '/api': 'http://localhost:3000',
+      secure: false,
     },
   },
 
