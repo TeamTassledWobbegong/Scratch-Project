@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './style/App.css';
 
 //Pages
 import Home from './containers/home.js';
@@ -7,6 +8,7 @@ import About from './containers/about.js';
 import Contact from './containers/contact.js';
 import Cart from './containers/cart.js';
 import Products from './containers/products.js';
+import Login from './containers/login.js';
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/products' element={<Products />} />
+          <Route path='/login' element={<Login />} />
         </Routes>
       </Router>
     </div>

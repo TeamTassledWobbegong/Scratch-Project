@@ -3,26 +3,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
-  entry: [
-    './client/index.js'
-  ],
+  entry: ['./client/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         use: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader'
-        ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.scss$/,
@@ -30,8 +25,8 @@ const config = {
           MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader',
-          'style-loader'
-        ]
+          'style-loader',
+        ],
       },
       {
         test: /\.png$/,
@@ -39,30 +34,30 @@ const config = {
           {
             loader: 'url-loader',
             options: {
-              mimetype: 'image/png'
-            }
-          }
-        ]
-      }
-    ]
+              mimetype: 'image/png',
+            },
+          },
+        ],
+      },
+    ],
   },
 
-  devServer:{
+  devServer: {
     historyApiFallback: true,
-    static:{
+    static: {
       directory: path.join(__dirname),
     },
     proxy: {
-      '/':'http://localhost:3000'
+      '/api': 'http://localhost:3000',
     },
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './client/index.html')
+      template: path.resolve(__dirname, './client/index.html'),
     }),
-    new MiniCssExtractPlugin()
-  ]
+    new MiniCssExtractPlugin(),
+  ],
 };
 
 module.exports = config;
