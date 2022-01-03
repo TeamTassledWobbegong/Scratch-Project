@@ -19,4 +19,8 @@ router.get('/signup', userController.createUser, (req, res) => {
   res.status(200).json(res.locals.results.rows[0]._id);
 });
 
+router.get('/products', userController.getStock, (req, res) => {
+  res.status(200).json(res.locals.results.rows);
+});
+
 module.exports = router;
