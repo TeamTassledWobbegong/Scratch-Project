@@ -40,6 +40,26 @@ const userController = {
         message: {err: 'User already exists, did not create entry'}
       });
     }
+  },
+
+  async getStock(req, res, next){
+    try{
+      console.log('getStock fired');
+      const query = 'SELECT * FROM "public"."stock";';
+      res.locals.results = await db.query(query);
+      //if query failed
+      if(!res.locals.results){ return next({
+        log: 'getStock middleware failed',
+        message: {err: 'Stock is empty, no results found'}
+      });}else{
+        return next();
+      }
+    }catch(e){
+      return next({
+        log: 'getStock middleware failed: ', e,
+        message: {err: 'Stock is empty, no results found'}
+      });
+    }
   }
 };
 
