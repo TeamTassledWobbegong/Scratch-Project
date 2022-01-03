@@ -29,7 +29,8 @@ const config = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'sass-loader'
+          'sass-loader',
+          'style-loader'
         ]
       },
       {
@@ -47,6 +48,7 @@ const config = {
   },
 
   devServer:{
+    historyApiFallback: true,
     static:{
       directory: path.join(__dirname),
     },

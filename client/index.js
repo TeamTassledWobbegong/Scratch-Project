@@ -5,10 +5,8 @@ import App from './App';
 import '@babel/polyfill';
 
 ReactDOM.render(
-  <Provider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Provider>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById('root')
 );

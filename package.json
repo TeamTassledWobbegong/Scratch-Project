@@ -6,7 +6,9 @@
   "scripts": {
     "start": "nodemon ./server/server.js",
     "build": "cross-env NODE_ENV=production webpack",
-    "dev": "cross-env NODE_ENV=development webpack serve --open & nodemon ./server/server.js"
+    "dev": "cross-env NODE_ENV=development webpack serve --open",
+    "build:css": "postcss client/style/tailwind.css -o client/style/main.css",
+    "build:watch": "postcss client/style/tailwind.css -o client/style/main.css --watch"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,7 @@
   },
   "homepage": "https://github.com/ronakh130/Scratch-Project#readme",
   "dependencies": {
+    "autoprefixer": "^10.4.1",
     "axios": "^0.24.0",
     "body-parser": "^1.19.1",
     "cookie-parser": "^1.4.6",
@@ -27,11 +30,13 @@
     "express": "^4.17.2",
     "killport": "^1.0.2",
     "nodemon": "^2.0.15",
+    "postcss-cli": "^9.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
-    "redux": "^4.1.2"
+    "redux": "^4.1.2",
+    "redux-thunk": "^2.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
