@@ -1,3 +1,4 @@
+const { Console } = require('console');
 const express = require('express');
 const path = require('path');
 
@@ -13,11 +14,7 @@ app.use(express.static(path.resolve(__dirname, '../client')));
 
 app.use('/test', (req, res) => {
   res.sendStatus(200);
-})
-
-
-
-
+});
 
 // catch-all route handler for any requests to an unknown route
 app.use((req, res) => res.status(404).send('Error: Page not found'));
@@ -35,7 +32,7 @@ app.use((err, req, res, next) => {
 });
 
 //start server
- app.listen(3000, () => {
+app.listen(3000, () => {
   console.log(`Server listening on port: ${3000}...`);
 });
 

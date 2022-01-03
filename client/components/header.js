@@ -11,7 +11,7 @@ function Header() {
         <img src="TBD" alt="http://localhost:8080/"></img> 
         <a href="http://localhost:8080/">CompanyName</a>
         <a href="http://localhost:8080/products">Products</a>
-        <a href="http://localhost:8080/contacts">Contact Us!</a>
+        <a href="http://localhost:8080/contact">Contact Us!</a>
       </ul>
     </div>
   );
