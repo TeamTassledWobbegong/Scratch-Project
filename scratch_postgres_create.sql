@@ -10,17 +10,16 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 CREATE TABLE public.users (
-  "_id" serial NOT NULL,
+  "_id" serial UNIQUE,
   "username" varchar NOT NULL UNIQUE,
   "password" varchar NOT NULL,
-  "cart_id" integer NOT NULL,
   CONSTRAINT "user_pk" PRIMARY KEY ("_id")
 ) WITH (
   OIDS=FALSE
 );
 
 CREATE TABLE public.stock (
-  "_id" serial NOT NULL,
+  "_id" serial UNIQUE,
   "name" varchar NOT NULL,
   "quantity" integer NOT NULL,
   "price" integer NOT NULL
@@ -29,7 +28,7 @@ CREATE TABLE public.stock (
 );
 
 CREATE TABLE public.carts (
-  "_id" serial NOT NULL,
+  "_id" serial UNIQUE,
   "item_name" varchar NOT NULL,
   "quantity" integer NOT NUll,
   "cart_id" integer NOT NULL,
@@ -38,17 +37,17 @@ CREATE TABLE public.carts (
   OIDS=FALSE
 );
 
-CREATE TABLE public.user_carts (
-  "_id" serial NOT NULL,
-  "user_id" integer NOT NULL,
-  "cart_id" integer NOT NUll
-) WITH (
-  OIDS=FALSE
-);
+-- CREATE TABLE public.user_carts (
+--   "_id" serial UNIQUE,
+--   "user_id" serial NOT NULL UNIQUE,
+--   "cart_id" serial NOT NUll UNIQUE
+-- ) WITH (
+--   OIDS=FALSE
+-- );
 
 
-ALTER TABLE public.user_carts ADD CONSTRAINT "users_cart_fk0" FOREIGN KEY ("cart_id") REFERENCES  public.carts("_id");
-ALTER TABLE public.user_carts ADD CONSTRAINT "users_cart_fk1" FOREIGN KEY ("user_id") REFERENCES  public.users("_id");
+-- ALTER TABLE public.user_carts ADD CONSTRAINT "users_cart_fk0" FOREIGN KEY ("cart_id") REFERENCES  public.carts("_id");
+-- ALTER TABLE public.user_carts ADD CONSTRAINT "users_cart_fk1" FOREIGN KEY ("user_id") REFERENCES  public.users("_id");
 
 
 INSERT INTO public.stock VALUES (1, 'dual croc spoilers', 20, 18);
@@ -61,13 +60,13 @@ INSERT INTO public.stock VALUES (7, 'croc badge', 20, 8);
 INSERT INTO public.stock VALUES (8, 'croc sticker', 35, 3);
 INSERT INTO public.stock VALUES (9, 'croc hat', 5, 25);
 
-INSERT INTO public.users VALUES (1, 'temp', '123', 1);
+INSERT INTO public.users(username, password) VALUES ('temp', '123');
 
 INSERT INTO public.carts VALUES (1, 'dual croc spoilers', 4, 1);
 INSERT INTO public.carts VALUES (2, 'croc spurs', 2, 1);
 INSERT INTO public.carts VALUES (3, 'croc chains', 2, 1);
 
- INSERT INTO public.user_carts VALUES (1, 1, 1);
+--  INSERT INTO public.user_carts VALUES (1, 1, 1);
 
 
 
