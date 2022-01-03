@@ -3,6 +3,7 @@ const path = require('path');
 
 const app = express();
 //require routers
+const loginRouter = require('./routes/loginRoute');
 
 //parse request body
 app.use(express.json());
@@ -13,9 +14,9 @@ app.use(express.static(path.resolve(__dirname, '../client')));
 
 app.use('/test', (req, res) => {
   res.sendStatus(200);
-})
+});
 
-
+app.use('/login', loginRouter);
 
 
 
@@ -35,7 +36,7 @@ app.use((err, req, res, next) => {
 });
 
 //start server
- app.listen(3000, () => {
+app.listen(3000, () => {
   console.log(`Server listening on port: ${3000}...`);
 });
 
