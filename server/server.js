@@ -4,9 +4,7 @@ const cors = require('cors');
 
 const app = express();
 //require routers
-const loginRouter = require('./routes/loginRoute');
-// const signupRouter = require('./routes/signupRoute');
-// const productsRouter = require('./routes/productsRoute');
+const apiRouter = require('./routes/apiRoute');
 
 //parse request body
 app.use(express.json());
@@ -16,13 +14,11 @@ app.use(cors());
 //serve static files
 app.use(express.static(path.resolve(__dirname, '../client')));
 
-app.use('/api/test', (req, res) => {
+app.use('/test', (req, res) => {
   res.sendStatus(200);
 });
 
-app.use('/api/login', loginRouter);
-// app.use('/signup', signupRouter);
-// app.use('/products', productsRouter);
+app.use('/api', apiRouter);
 
 // catch-all route handler for any requests to an unknown route
 app.use((req, res) => res.status(404).send('Error: Page not found'));
