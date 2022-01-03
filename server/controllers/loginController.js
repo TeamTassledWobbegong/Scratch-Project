@@ -2,8 +2,9 @@ const db = require('../models/model.js');
 
 const loginController = {
   async verifyUser(req, res, next){
+    console.log('verifyUser fired');
     const { username, password } = req.body;
-    const query = `SELECT * FROM stock WHERE name = ${username}`;
+    const query = `SELECT * FROM users WHERE username = '${username}'`;
     res.locals.results = await db.query(query);
     //if query failed
     if(!res.locals.results) return next({
