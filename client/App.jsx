@@ -8,13 +8,13 @@ import Contact from './containers/contact.jsx';
 import Cart from './containers/cart.jsx';
 import Products from './containers/products.jsx';
 import Login from './containers/login.jsx';
+import Signup from './containers/signup.jsx';
 
 function App() {
-
   useEffect(() => {
     fetch('/login')
-      .then(data => data.json())
-      .then(data => {
+      .then((data) => data.json())
+      .then((data) => {
         console.log(data.body);
       });
   }, []);
@@ -29,6 +29,7 @@ function App() {
           <Route path='/cart' element={<Cart />} />
           <Route path='/products' element={<Products />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
         </Routes>
       </Router>
     </div>

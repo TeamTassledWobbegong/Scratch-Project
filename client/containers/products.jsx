@@ -8,7 +8,7 @@ const Products = (props) => {
     <div>
       <Header />
       <p>Hello from the Products page Card should render here </p>
-      {/* <ProductCard /> */}
+      <ProductCard />
     </div>
   );
 };

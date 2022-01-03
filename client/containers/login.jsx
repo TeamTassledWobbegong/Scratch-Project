@@ -1,5 +1,4 @@
-import React from 'react';
-import Header from '../components/header.jsx';
+
 
 // function sendLoginInfo (Username,Password) = {
 

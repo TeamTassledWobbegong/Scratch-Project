@@ -3,65 +3,63 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const ProductCard = (props) => {
-  const { _id, price, name, inventory } = props;
+  const { _id, price, name, inventory, cart_id, item_name } = props;
+
+  // const [products, setProducts] = useState([]);
+
+  // const refreshProducts = () => {
+  //   axios.get('/api/products').then(r=> r.data).then(products=>{
+  //     console.log(products);
+  //     setProducts(products);
+  //   }
+  //   );
+  // };
+
+  // //function to add product to cart - Need to confirm that the api path is correct and props match
+  // const addToCart = () =>{
+  //   const payload ={
+  //     id:_id,
+  //     item_name:item_name,
+  //     cart_id:cart_id,
+  //     inventory:inventory-1,
+  //   };
+  //   //this section makes the put request to the backend then refreshes the inventory
+  //   axios.put('/api/checkoutpathing',payload).then(r=>(r.data));
+  // };
 
   return (
-    <div className='card'>
-      <div className='flex max-w-md bg-white shadow-lg rounded-lg overflow-hidden'>
-        <div
-          className='w-1/3 bg-cover'
-          style="background-image: url('sampleimage')"
-        ></div>
-        <div className='w-2/3 p-4'>
-          <h1 className='text-gray-900 font-bold text-2xl'>
-            High downforce wing
-          </h1>
-          <p className='mt-2 text-gray-600 text-sm'>
-            Complete your sporty shoes with the latest in Aerodynamic
-            development
-          </p>
-          <div className='flex item-center mt-2'>
-            <svg
-              className='w-5 h-5 fill-current text-gray-700'
-              viewBox='0 0 24 24'
-            >
-              <path d='M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z' />
-            </svg>
-            <svg
-              className='w-5 h-5 fill-current text-gray-700'
-              viewBox='0 0 24 24'
-            >
-              <path d='M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z' />
-            </svg>
-            <svg
-              className='w-5 h-5 fill-current text-gray-700'
-              viewBox='0 0 24 24'
-            >
-              <path d='M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z' />
-            </svg>
-            <svg
-              className='w-5 h-5 fill-current text-gray-500'
-              viewBox='0 0 24 24'
-            >
-              <path d='M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z' />
-            </svg>
-            <svg
-              className='w-5 h-5 fill-current text-gray-500'
-              viewBox='0 0 24 24'
-            >
-              <path d='M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z' />
-            </svg>
-          </div>
-          <div className='flex item-center justify-between mt-3'>
-            <h1 className='text-gray-700 font-bold text-xl'>$220</h1>
-            <button className='px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded'>
-              Add to Card
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <article className='card'>
+      <img
+        src='../images/dual croc spoilers.jpg'
+        width='200px'
+        height='200px'
+      ></img>
+      <li key={'_id'} className='productDetail'>
+        {' '}
+        Description: {'name'}
+      </li>
+      <li className='productDetail'> Price: {'price'}</li>
+      <li className='productDetail'> Inventory: {'quantity'}</li>
+      <button className='addButton' onClick={'add to cart'}>
+        +
+      </button>
+      <button className='addButton' onClick={'add to cart'}>
+        -
+      </button>
+    </article>
   );
 };
 
 export default ProductCard;
+
+//NOTES
+// CREATE TABLE public.carts (
+//   "_id" serial NOT NULL,
+//   "item_name" varchar NOT NULL,
+//   "quantity" integer NOT NUll,
+//   "cart_id" integer NOT NULL,
+//   CONSTRAINT "cart_pk" PRIMARY KEY ("_id")
+// ) WITH (
+//   OIDS=FALSE
+// );
+// INSERT INTO public.carts VALUES (1, 'dual croc spoilers', 4, 1);
