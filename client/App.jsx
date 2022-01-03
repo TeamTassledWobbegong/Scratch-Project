@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './style/App.css';
 
 //Pages
-import Home from './containers/home.js';
-import About from './containers/about.js';
-import Contact from './containers/contact.js';
-import Cart from './containers/cart.js';
-import Products from './containers/products.js';
-import Login from './containers/login.js';
+import Home from './containers/home.jsx';
+import About from './containers/about.jsx';
+import Contact from './containers/contact.jsx';
+import Cart from './containers/cart.jsx';
+import Products from './containers/products.jsx';
+import Login from './containers/login.jsx';
 
 function App() {
 

@@ -15,17 +15,17 @@ const config = {
         use: 'babel-loader',
         exclude: /node_modules/,
       },
+      // {
+      //   test: /\.css$/,
+      //   use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      // },
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      },
-      {
-        test: /\.scss$/,
+        test: /\.s?css/,
         use: [
-          MiniCssExtractPlugin.loader,
+          // MiniCssExtractPlugin.loader,
+          'style-loader',
           'css-loader',
           'sass-loader',
-          'style-loader',
         ],
       },
       {

@@ -1,5 +1,4 @@
 import React from 'react';
-import '../style/header.css';
 
 // will have header, products, contact us, about us, Cart
 // Logo tbd

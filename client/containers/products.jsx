@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../components/header.js';
+import Header from '../components/header.jsx';
 import axios from 'axios';
-import ProductCard from './productCard.js';
+import ProductCard from './productCard.jsx';
 
 const Products = (props) => {
   return (
