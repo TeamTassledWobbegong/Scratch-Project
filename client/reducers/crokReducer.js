@@ -5,6 +5,7 @@ const initialState = {
   cartID: '',
   cart: {},
   products: [],
+  singleProduct: {},
 };
 
 const crokReducer = (state = initialState, action) => {
@@ -22,6 +23,19 @@ const crokReducer = (state = initialState, action) => {
       return {
         ...state,
         products: action.products,
+      };
+
+    case types.SINGLE_ITEM:
+      console.log(action.payload);
+      return {
+        ...state,
+        singleProduct: action.payload,
+      };
+
+    case types.GET_CARTID:
+      return {
+        ...state,
+        cartID: action.payload,
       };
 
     // case types.LOGIN:

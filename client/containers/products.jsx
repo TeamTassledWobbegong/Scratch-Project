@@ -8,8 +8,9 @@ import * as actions from '../actions/actions.js';
 
 const Products = () => {
   const dispatch = useDispatch();
-  const [products,setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
 
+  //makes a request to the server for the products then uses Map to create the small tiles on the product page
   useEffect(() => {
     fetch('http://localhost:3000/api/products')
       .then((r) => r.json())
@@ -19,21 +20,18 @@ const Products = () => {
       });
   }, []);
 
-   
-
   return (
     <div>
       <Header />
-      <div className = "productsLanding">
+      <div className='productsWrapper'>
         {products.map((el, idx) => {
-          return(
-            <div key={el._id} className ={'productSheets'}>
-              <ProductCard el={el}/>
+          return (
+            <div key={el._id} className={idx}>
+              <ProductCard el={el} />
             </div>
           );
-        })
-        }     
-      </div>       
+        })}
+      </div>
     </div>
   );
 };

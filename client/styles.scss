@@ -11,6 +11,7 @@ body {
   align-items: center;
   box-shadow: 5px 7px 12px 3px rgba(0, 0, 0, 0.58);
   text-decoration: none;
+  margin-bottom: 2rem;
 }
 
 .productsLink {
@@ -58,14 +59,13 @@ a {
 ////////////////////////////////Product Card Styling////////////////////////////////////////
 .card {
   display: flex;
-  
-  justify-content: flex-start;
+  justify-content: center;
   color: black;
   background: #f3f3f3;
-  padding: 2rem;
   border: 1px solid lightgray;
   box-shadow: 1px 1px 5px rgba(22, 22, 22, 0.915);
   max-width: 175px;
+  max-height: 175px;
 }
 .addButton {
   display: flex;
@@ -79,14 +79,34 @@ a {
   background-color: #f2774aaa;
   max-height: 20px;
 }
-.productsLanding {
-  display:grid;
-  grid-template-columns: repeat (3, 200px);
-  grid-template-rows: repeat (3, 200px);
-  column-gap:10px;
-  row-gap:10px
-
+.productsWrapper {
+  display: grid;
+  padding-top: 200px;
+  padding: 5px;
+  grid-template-columns: auto auto auto;
+  column-gap: 20px;
+  row-gap: 20px;
+  justify-content: center;
 }
+.Singlecard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-between;
+  color: black;
+  background: #f3f3f3;
+  padding: 2rem;
+  border: 2px solid rgb(14, 13, 13);
+  box-shadow: 1px 1px 5px rgba(22, 22, 22, 0.915);
+}
+.itemDescription {
+  display: flex;
+  font-size: large;
+}
+.li {
+  list-style-type: none;
+}
+
 ////////////////////////////////Login/Signup Stlying////////////////////////////////////////
 .Form {
   display: flex;
@@ -101,4 +121,30 @@ a {
 .pad {
   padding-left: 4px;
   color: #f2764a;
+}
+////////////////////////////////Home Styling////////////////////////////////////////
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #5e4b3b;
+}
+////////////////////////////////About Us Styling////////////////////////////////////////
+.about {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 18px;
+}
+
+.aboutCon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

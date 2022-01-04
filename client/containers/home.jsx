@@ -5,7 +5,18 @@ function Home() {
   return (
     <div>
       <Header />
-      <p className='hello'>Hello from the Home page </p>
+      <div className='home'>
+        <h2 className='hello'>
+          Welcome to Croks, the finest establishment of Croc accessories! Take a
+          look at our happy customers!
+        </h2>
+        <img
+          src='../images/home.png'
+          alt='Happy Customers'
+          width='500'
+          height='500'
+        ></img>
+      </div>
     </div>
   );
 }

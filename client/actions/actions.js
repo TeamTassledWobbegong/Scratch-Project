@@ -14,9 +14,17 @@ export const addCartActionCreator = (itemName, itemQuantity) => ({
   itemQuantity,
 });
 
-export const loginActionCreator = () => ({});
+export const loginActionCreator = (cartID) => ({
+  type: types.GET_CARTID,
+  cartID,
+});
 
 export const productsActionCreator = (products) => ({
   type: types.GET_PRODUCTS,
   products,
+});
+
+export const singleItemActionCreator = (object) => ({
+  type: types.SINGLE_ITEM,
+  payload: object,
 });
