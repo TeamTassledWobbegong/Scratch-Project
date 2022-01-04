@@ -61,7 +61,7 @@ function Signup() {
       <p className='welcome'>
         Sign up below to become Crok's newest member and have the coolest crocs
         on the blocks! Signed up? Then
-        <Link className='pad' to='/signup'>
+        <Link className='pad' to='/login'>
           log in!
         </Link>
       </p>
