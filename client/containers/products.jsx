@@ -8,25 +8,34 @@ import * as actions from '../actions/actions.js';
 
 const Products = () => {
   const dispatch = useDispatch();
-  //const productsForSale = [];
+  const [products,setProducts] = useState([]);
 
   useEffect(() => {
     fetch('http://localhost:3000/api/products')
       .then((r) => r.json())
       .then((products) => {
         dispatch(actions.productsActionCreator(products));
-        // productsForSale.push(products);
-        console.log(products);
+        setProducts(products);
       });
   }, []);
 
-  // console.log(productsForSale);
+   
 
   return (
     <div>
       <Header />
-      <ProductCard />
-      <p>Hello from the Products page Card should render here </p>
+      {products.map((el, idx) => {
+        return(
+          <div key={el._id} className ={'productSheets'}>
+            <ProductCard {...el}/>
+          </div>
+        );
+      })
+      }      
+
+
+
+      
     </div>
   );
 };
