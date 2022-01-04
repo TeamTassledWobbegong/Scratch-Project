@@ -3,10 +3,11 @@ import Header from '../components/header.jsx';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 function registerUser(info) {
   try {
-    return fetch('http://localhost:3000/signup', {
+    return fetch('http://localhost:3000/api/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -19,6 +20,21 @@ function registerUser(info) {
 }
 
 function Signup() {
+  // const dispatch = useDispatch();
+
+  // async function handleSubmit(event) {
+  //   event.preventDefault();
+
+  //   const cartID = await verifyUser({ username, password });
+
+  //   if (cartID){
+  //     dispatch(actions.loginActionCreator(username));
+  //     navigate('/login');
+  //   }
+  //   else {
+  //     alert('Sign up failed!');
+  //   }
+  // }
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -31,9 +47,9 @@ function Signup() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const token = await registerUser({ username, password });
+    const cartID = await registerUser({ username, password });
 
-    if (token === true) navigate('/login');
+    if (cartID) navigate('/login');
     else {
       alert('Sign up failed!');
     }
@@ -42,8 +58,15 @@ function Signup() {
   return (
     <div>
       <Header />
+      <p className='welcome'>
+        Sign up below to become Crok's newest member and have the coolest crocs
+        on the blocks! Signed up? Then
+        <Link className='pad' to='/signup'>
+          log in!
+        </Link>
+      </p>
       <div className='signup'>
-        <Form>
+        <Form className='Form'>
           <Form.Group size='lg' controlId='username'>
             <Form.Label>Username: </Form.Label>
             <Form.Control

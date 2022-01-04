@@ -1,19 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-redux';
 import axios from 'axios';
 
 const ProductCard = (props) => {
-  const { _id, price, name, inventory, cart_id, item_name } = props;
-
-  // const [products, setProducts] = useState([]);
-
-  // const refreshProducts = () => {
-  //   axios.get('/api/products').then(r=> r.data).then(products=>{
-  //     console.log(products);
-  //     setProducts(products);
-  //   }
-  //   );
-  // };
+  const { price, inventory, cart_id, item_name } = props;
 
   // //function to add product to cart - Need to confirm that the api path is correct and props match
   // const addToCart = () =>{
@@ -34,17 +24,16 @@ const ProductCard = (props) => {
         width='200px'
         height='200px'
       ></img>
-      <li key={'_id'} className='productDetail'>
-        {' '}
-        Description: {'name'}
+      <li key={'item_name'} className='productDetail'>
+        Description: {'item_name'}
       </li>
       <li className='productDetail'> Price: {'price'}</li>
-      <li className='productDetail'> Inventory: {'quantity'}</li>
+      <li className='productDetail'> Inventory: {'inventory'}</li>
       <button className='addButton' onClick={'add to cart'}>
-        +
+        add to cart
       </button>
-      <button className='addButton' onClick={'add to cart'}>
-        -
+      <button className='removeButton' onClick={'add to cart'}>
+        remove
       </button>
     </article>
   );

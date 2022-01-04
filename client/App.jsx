@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 //Pages
 import Home from './containers/home.jsx';
@@ -18,6 +19,8 @@ function App() {
         console.log(data.body);
       });
   }, []);
+
+  // const cart = useSelector((state) => state.crok.cart);
 
   return (
     <div className='app'>

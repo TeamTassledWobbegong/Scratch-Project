@@ -70,4 +70,27 @@ a {
   display: flex;
   border-radius: 45px;
   background-color: #f2764a;
+  max-height: 20px;
+}
+.removeButton {
+  display: flex;
+  border-radius: 45px;
+  background-color: #f2774aaa;
+  max-height: 20px;
+}
+
+////////////////////////////////Login/Signup Stlying////////////////////////////////////////
+.Form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome {
+  display: flex;
+  justify-content: center;
+}
+.pad {
+  padding-left: 4px;
+  color: #f2764a;
 }
