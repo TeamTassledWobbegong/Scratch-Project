@@ -14,10 +14,12 @@ app.use(cors());
 //serve static files
 app.use(express.static(path.resolve(__dirname, '../client')));
 
+//test route
 app.use('/test', (req, res) => {
   res.sendStatus(200);
 });
 
+//redirect to apiRouter
 app.use('/api', apiRouter);
 
 // catch-all route handler for any requests to an unknown route
