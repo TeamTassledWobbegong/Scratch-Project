@@ -14,7 +14,7 @@ function Header() {
           ></img>
         </a>
       </div>
-      <div className='products'>
+      <div className='productsLink'>
         <a className='headerLinks' href='http://localhost:8080/products'>
           Products
         </a>
