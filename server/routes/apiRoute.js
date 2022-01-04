@@ -4,8 +4,6 @@ const userController = require('../controllers/userController.js');
 
 const router = express.Router();
 
-// app.use('/signup', signupRouter);
-// app.use('/products', productsRouter);
 
 router.get('/test', (req, res) => {
   res.sendStatus(200);

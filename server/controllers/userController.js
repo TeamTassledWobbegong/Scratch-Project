@@ -1,7 +1,7 @@
 const db = require('../models/model.js');
 
 const userController = {
-  async verifyUser(req, res, next) {
+  async verifyUser(req, res, next) { //check if login is correct
     console.log('verifyUser fired');
     const { username, password } = req.body;
     const query = `SELECT * FROM users WHERE username = '${username}'`;
@@ -23,7 +23,7 @@ const userController = {
     }
   },
 
-  async createUser(req, res, next) {
+  async createUser(req, res, next) { //create new user in db
     try {
       console.log('createUser fired');
       const { username, password } = req.body;
@@ -50,7 +50,7 @@ const userController = {
     }
   },
 
-  async getStock(req, res, next) {
+  async getStock(req, res, next) { //retrieve entire list of stock
     try {
       console.log('getStock fired');
       const query = 'SELECT * FROM "public"."stock";';
@@ -73,7 +73,7 @@ const userController = {
     }
   },
 
-  async addItem(req, res, next){
+  async addItem(req, res, next){ //Add new item to cart or increase quantity if already present
     try{
       console.log('addItem fired');
       const { itemName, cartID, quantity } = req.body;
@@ -91,9 +91,9 @@ const userController = {
         res.locals.amount = await db.query(insertQuery);
         return next();
       }else if(res.locals.results.rows.length > 0){ //if already in cart
-        //find item quantity already in cart
         const arr = res.locals.results.rows;
         let newAmount;
+        //find item quantity already in cart
         for (let i = 0; i < arr.length; i++) {
           const curr = arr[i];
           if(curr.item_name == itemName){
