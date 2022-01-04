@@ -3,9 +3,9 @@ import Header from '../components/header.jsx';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 
 function registerUser(info) {
+  //fetches sign up data from DB
   try {
     return fetch('http://localhost:3000/api/signup', {
       method: 'POST',
@@ -20,22 +20,7 @@ function registerUser(info) {
 }
 
 function Signup() {
-  // const dispatch = useDispatch();
-
-  // async function handleSubmit(event) {
-  //   event.preventDefault();
-
-  //   const cartID = await verifyUser({ username, password });
-
-  //   if (cartID){
-  //     dispatch(actions.loginActionCreator(username));
-  //     navigate('/login');
-  //   }
-  //   else {
-  //     alert('Sign up failed!');
-  //   }
-  // }
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState(''); //makes a local state to store username & password
   const [password, setPassword] = useState('');
 
   const navigate = useNavigate();
@@ -47,8 +32,8 @@ function Signup() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const cartID = await registerUser({ username, password });
-    console.log(cartID);
+    const cartID = await registerUser({ username, password }); //sends info to server side
+
     if (typeof cartID == 'number') navigate('/login');
     else {
       alert('Sign up failed, username already taken!');

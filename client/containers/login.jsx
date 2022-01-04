@@ -3,6 +3,8 @@ import Header from '../components/header.jsx';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import * as actions from '../actions/actions.js';
 
 function verifyUser(info) {
   try {
@@ -28,14 +30,31 @@ function Login() {
   function validateForm() {
     return username.length > 0 && password.length > 0;
   }
+  // const dispatch = useDispatch();
+
+  // async function handleSubmit(event) {
+  //   event.preventDefault();
+
+  //   const cartID = await verifyUser({ username, password });
+
+  //   if (cartID){
+  //     dispatch(actions.loginActionCreator(username));
+  //     navigate('/login');
+  //   }
+  //   else {
+  //     alert('Sign up failed!');
+  //   }
+  // }
+  const dispatch = useDispatch();
 
   async function handleSubmit(event) {
     event.preventDefault();
 
     const cartID = await verifyUser({ username, password });
-    console.log('cartID: ', cartID);
-    if (typeof cartID == 'number') navigate('/products');
-    else {
+    if (typeof cartID == 'number') {
+      dispatch(actions.loginActionCreator(cartID));
+      navigate('/products');
+    } else {
       alert('Log in failed!');
     }
   }
