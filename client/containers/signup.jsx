@@ -3,10 +3,11 @@ import Header from '../components/header.jsx';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
-function verifyUser(info) {
+function registerUser(info) {
   try {
-    return fetch('http://localhost:3000/api/login', {
+    return fetch('http://localhost:3000/api/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -14,12 +15,26 @@ function verifyUser(info) {
       body: JSON.stringify(info),
     }).then((data) => data.json());
   } catch (err) {
-    alert('Username or password credentials is incorrect.');
-    throw new Error('Log in failed.');
+    throw new Error('Sign up failed.');
   }
 }
 
-function Login() {
+function Signup() {
+  // const dispatch = useDispatch();
+
+  // async function handleSubmit(event) {
+  //   event.preventDefault();
+
+  //   const cartID = await verifyUser({ username, password });
+
+  //   if (cartID){
+  //     dispatch(actions.loginActionCreator(username));
+  //     navigate('/login');
+  //   }
+  //   else {
+  //     alert('Sign up failed!');
+  //   }
+  // }
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -32,11 +47,11 @@ function Login() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const cartID = await verifyUser({ username, password });
+    const cartID = await registerUser({ username, password });
 
-    if (cartID) navigate('/products');
+    if (cartID) navigate('/login');
     else {
-      alert('Log in failed!');
+      alert('Sign up failed!');
     }
   }
 
@@ -44,11 +59,10 @@ function Login() {
     <div>
       <Header />
       <p className='welcome'>
-        Please log in to browse through and order from the finest collection of
-        Croc Accessories. If you have not signed up yet, consider becoming the
-        newest member of the Crok community below!
+        Sign up below to become Crok's newest member and have the coolest crocs
+        on the blocks! Signed up? Then
         <Link className='pad' to='/signup'>
-          Sign Up
+          log in!
         </Link>
       </p>
       <div className='signup'>
@@ -77,7 +91,7 @@ function Login() {
             onClick={handleSubmit}
             disabled={!validateForm()}
           >
-            Log In
+            Sign Up
           </Button>
         </Form>
       </div>
@@ -85,4 +99,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;
