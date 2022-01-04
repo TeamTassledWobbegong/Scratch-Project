@@ -1,10 +1,96 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+html,
+body {
+  // margin: 0;
+  background-color: #f3fcf0;
+}
 
 .header {
-  max-width: 100px;
+  background-color: #f2764a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 5px 7px 12px 3px rgba(0, 0, 0, 0.58);
+  text-decoration: none;
+}
+
+.products {
+  min-width: 500px;
   display: flex;
   flex-direction: row;
-  align-items: space-between;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'sans serif';
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.headerLinks {
+  color: rgb(94, 30, 7);
+}
+.cart {
+  padding-right: 50px;
+  min-width: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-family: 'sans serif';
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+.cartLinks {
+  color: rgb(94, 30, 7);
+}
+
+////////////////////////////////HEADER STYLING////////////////////////////////////////
+
+// .app {
+// }
+
+////////////////////////////////APP STYLING////////////////////////////////////////
+
+a {
+  text-decoration: none;
+}
+////////////////////////////////Product Card Styling////////////////////////////////////////
+.card {
+  display: flex;
+  justify-content: flex-start;
+  color: black;
+  background: #f3f3f3;
+  padding: 2rem;
+  border: 1px solid lightgray;
+  box-shadow: 1px 1px 5px rgba(22, 22, 22, 0.915);
+  max-width: 610px;
+}
+.addButton {
+  display: flex;
+  border-radius: 45px;
+  background-color: #f2764a;
+  max-height: 20px;
+}
+.removeButton {
+  display: flex;
+  border-radius: 45px;
+  background-color: #f2774aaa;
+  max-height: 20px;
+}
+
+////////////////////////////////Login/Signup Stlying////////////////////////////////////////
+.Form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome {
+  display: flex;
+  justify-content: center;
+}
+.pad {
+  padding-left: 4px;
+  color: #f2764a;
 }

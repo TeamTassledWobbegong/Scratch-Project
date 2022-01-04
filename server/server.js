@@ -1,23 +1,24 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
 //require routers
+const apiRouter = require('./routes/apiRoute');
 
 //parse request body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 //serve static files
 app.use(express.static(path.resolve(__dirname, '../client')));
 
 app.use('/test', (req, res) => {
   res.sendStatus(200);
-})
+});
 
-
-
-
+app.use('/api', apiRouter);
 
 // catch-all route handler for any requests to an unknown route
 app.use((req, res) => res.status(404).send('Error: Page not found'));
@@ -35,7 +36,7 @@ app.use((err, req, res, next) => {
 });
 
 //start server
- app.listen(3000, () => {
+app.listen(3000, () => {
   console.log(`Server listening on port: ${3000}...`);
 });
 
