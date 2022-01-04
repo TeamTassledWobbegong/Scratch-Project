@@ -3,8 +3,8 @@ import { Link } from 'react-redux';
 import axios from 'axios';
 
 const ProductCard = (props) => {
-  const { price, inventory, cart_id, item_name, description, primary_picture } = props;
-
+  const { price, inventory, cart_id, item_name, description, primary_picture } =
+    props;
 
   // //function to add product to cart - Need to confirm that the api path is correct and props match
   // const addToCart = () =>{
@@ -17,6 +17,8 @@ const ProductCard = (props) => {
   //   //this section makes the put request to the backend then refreshes the inventory
   //   axios.put('/api/checkoutpathing',payload).then(r=>(r.data));
   // };
+
+  //itemName, cartID, quantity
 
   return (
     <article className='card'>
