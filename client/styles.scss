@@ -1,3 +1,9 @@
+html,
+body {
+  // margin: 0;
+  background-color: #f3fcf0;
+}
+
 .header {
   background-color: #f2764a;
   display: flex;
@@ -41,12 +47,50 @@
 
 ////////////////////////////////HEADER STYLING////////////////////////////////////////
 
-.app {
-  background-color: #363130;
-}
+// .app {
+// }
 
 ////////////////////////////////APP STYLING////////////////////////////////////////
 
 a {
   text-decoration: none;
+}
+////////////////////////////////Product Card Styling////////////////////////////////////////
+.card {
+  display: flex;
+  justify-content: flex-start;
+  color: black;
+  background: #f3f3f3;
+  padding: 2rem;
+  border: 1px solid lightgray;
+  box-shadow: 1px 1px 5px rgba(22, 22, 22, 0.915);
+  max-width: 610px;
+}
+.addButton {
+  display: flex;
+  border-radius: 45px;
+  background-color: #f2764a;
+  max-height: 20px;
+}
+.removeButton {
+  display: flex;
+  border-radius: 45px;
+  background-color: #f2774aaa;
+  max-height: 20px;
+}
+
+////////////////////////////////Login/Signup Stlying////////////////////////////////////////
+.Form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome {
+  display: flex;
+  justify-content: center;
+}
+.pad {
+  padding-left: 4px;
+  color: #f2764a;
 }
