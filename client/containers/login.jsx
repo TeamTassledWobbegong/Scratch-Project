@@ -33,8 +33,8 @@ function Login() {
     event.preventDefault();
 
     const cartID = await verifyUser({ username, password });
-
-    if (cartID) navigate('/products');
+    console.log('cartID: ', cartID);
+    if (typeof cartID == 'number') navigate('/products');
     else {
       alert('Log in failed!');
     }

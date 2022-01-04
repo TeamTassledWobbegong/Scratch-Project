@@ -25,7 +25,7 @@ CREATE TABLE public.stock (
   "price" integer NOT NULL, 
   "description" varchar,
   "primary_picture" varchar,
-  "secondary_picture" varchar,
+  "secondary_picture" varchar
 ) WITH (
   OIDS=FALSE
 );
@@ -54,7 +54,7 @@ CREATE TABLE public.carts (
 
 
 INSERT INTO public.stock VALUES (1, 'dual croc spoilers', 20, 18,'Get the lastest in aerodynamic tech, on the most advanced running shoe ever','../images/dual croc spoilers.jpg','../images/dual croc spoilers2.jpg');
-INSERT INTO public.stock VALUES (2, 'goth crocs', 10, 112,`Your parents don/'t get you, and niether do we. Wear your rage on display with Goth Croks`,'../images/goth crocs.jpg','../images/goth crocs2.jpg' );
+INSERT INTO public.stock VALUES (2, 'goth crocs', 10, 112,'Your parents just do not get you, and niether do we. Wear your rage on display with Goth Croks','../images/goth crocs.jpg','../images/goth crocs2.jpg' );
 INSERT INTO public.stock VALUES (3, 'croc spurs', 15, 20,'After a long day on the ranch, slip into something comfortable and familiar, easy to find in the dark', '../images/croc spurs.jpg','../images/croc spurs.jpg');
 INSERT INTO public.stock VALUES (4, 'croc flags', 40, 3, 'Show your country pride with these custom order flags', '../images/croc flags.jpg','../images/croc flags.jpg');
 INSERT INTO public.stock VALUES (5, 'croc chains', 20, 15, 'Hate how light your shoes are? Want to increase toe strength and street cred at the same time? Buy our Heavy Duty Crok Chains', '../images/croc chains.jpg','../images/croc chains2.jpg');
