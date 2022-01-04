@@ -7,7 +7,7 @@ const userController = {
     const query = `SELECT * FROM users WHERE username = '${username}'`;
     res.locals.results = await db.query(query);
     //if query failed
-    if(!res.locals.results) return next({
+    if(res.locals.results.rows.length < 1) return next({
       log: 'verifyUser middleware failed',
       message: {err: 'Did not find user '}
     });
@@ -58,6 +58,32 @@ const userController = {
       return next({
         log: 'getStock middleware failed: ', e,
         message: {err: 'Stock is empty, no results found'}
+      });
+    }
+  },
+
+  async addItem(req, res, next){
+    try{
+      console.log('addItem fired');
+      const { itemName, cartID, quantity } = req.body;
+      const findQuery = `SELECT * FROM "public"."carts" WHERE cart_id = ${cartID};`;
+      const insertQuery = `INSERT INTO public.carts(item_name, quantity, cart_id) VALUES ('${itemName}', '${cartID}', '${quantity}') RETURNING _quantity;`;
+      res.locals.results = await db.query(findQuery);
+      if(res.locals.)
+
+
+
+      //if query failed
+      if(!res.locals.results){ return next({
+        log: 'addItem middleware failed',
+        message: {err: 'Item or cart not found'}
+      });}else{
+        return next();
+      }
+    }catch(e){
+      return next({
+        log: 'addItem middleware failed: ', e,
+        message: {err: 'Item or cart not found'}
       });
     }
   }
