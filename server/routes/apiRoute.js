@@ -23,4 +23,8 @@ router.get('/products', userController.getStock, (req, res) => {
   res.status(200).json(res.locals.results.rows);
 });
 
+router.patch('/add', userController.addItem, (req, res) => {
+  res.status(200).json(res.locals.updated);
+});
+
 module.exports = router;

@@ -33,9 +33,11 @@ function Login() {
     event.preventDefault();
 
     const cartID = await verifyUser({ username, password });
-    console.log(cartID);
-    if (typeof cartID !== 'number') alert('Log in failed!');
+    console.log('cartID: ', cartID);
     if (typeof cartID == 'number') navigate('/products');
+    else {
+      alert('Log in failed!');
+    }
   }
 
   return (
