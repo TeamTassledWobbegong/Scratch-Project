@@ -3,50 +3,44 @@ import { Link } from 'react-redux';
 import axios from 'axios';
 
 const ProductCard = (props) => {
-  const { price, quantity, cart_id, name, description, primary_picture } = props.el;
-  //takes the clicked product image and generated the full product card 
+  const { price, quantity, cart_id, name, description, primary_picture } =
+    props.el;
+  //takes the clicked product image and generated the full product card
   const getProductCard = (clickedImage) => {
-    console.log(clickedImage.alt)
-    if (props.el.hasOwnProperty(clickedImage.alt)) console.log('true') 
-    return(
+    console.log(clickedImage.alt);
+    if (props.el.hasOwnProperty(clickedImage.alt)) console.log('true');
+    return (
       // <div key={clickedImage.alt} className ={'productSheets'}>
       //         <SingleProductCard el={el}/>
       //       </div>
       <article className='card'>
-        <img
-          src={primary_picture}
-          width='150px'
-          height='150px'
-        ></img>
+        <img src={primary_picture} width='150px' height='150px'></img>
         <li key={name} className='productDetail'>
           {description}
         </li>
         <li className='productDetail'> Price:$ {price}</li>
         <li className='productDetail'> In Stock : {quantity}</li>
         <button className='addButton' onClick={'add to cart'}>
-        add to cart
+          add to cart
         </button>
         <button className='removeButton' onClick={'add to cart'}>
-        remove
+          remove
         </button>
       </article>
     );
   };
 
-
-  
+  //itemName, cartID, quantity
 
   return (
     <article className='card'>
-
       <img
         alt={name}
         src={primary_picture}
         width='150px'
         height='150px'
-        onClick = {(e)=>  getProductCard(e.target)}
+        onClick={(e) => getProductCard(e.target)}
       ></img>
-      
     </article>
   );
 };

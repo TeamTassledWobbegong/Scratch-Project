@@ -48,10 +48,10 @@ function Signup() {
     event.preventDefault();
 
     const cartID = await registerUser({ username, password });
-
-    if (cartID) navigate('/login');
+    console.log(cartID);
+    if (typeof cartID == 'number') navigate('/login');
     else {
-      alert('Sign up failed!');
+      alert('Sign up failed, username already taken!');
     }
   }
 
