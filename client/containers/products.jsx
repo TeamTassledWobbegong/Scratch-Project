@@ -24,18 +24,16 @@ const Products = () => {
   return (
     <div>
       <Header />
-      {products.map((el, idx) => {
-        return(
-          <div key={el._id} className ={'productSheets'}>
-            <ProductCard {...el}/>
-          </div>
-        );
-      })
-      }      
-
-
-
-      
+      <div className = "productsLanding">
+        {products.map((el, idx) => {
+          return(
+            <div key={el._id} className ={'productSheets'}>
+              <ProductCard el={el}/>
+            </div>
+          );
+        })
+        }     
+      </div>       
     </div>
   );
 };

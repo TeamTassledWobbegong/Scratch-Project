@@ -13,7 +13,7 @@ body {
   text-decoration: none;
 }
 
-.products {
+.productsLink {
   min-width: 500px;
   display: flex;
   flex-direction: row;
@@ -58,13 +58,14 @@ a {
 ////////////////////////////////Product Card Styling////////////////////////////////////////
 .card {
   display: flex;
+  
   justify-content: flex-start;
   color: black;
   background: #f3f3f3;
   padding: 2rem;
   border: 1px solid lightgray;
   box-shadow: 1px 1px 5px rgba(22, 22, 22, 0.915);
-  max-width: 610px;
+  max-width: 175px;
 }
 .addButton {
   display: flex;
@@ -78,7 +79,14 @@ a {
   background-color: #f2774aaa;
   max-height: 20px;
 }
+.productsLanding {
+  display:grid;
+  grid-template-columns: repeat (3, 200px);
+  grid-template-rows: repeat (3, 200px);
+  column-gap:10px;
+  row-gap:10px
 
+}
 ////////////////////////////////Login/Signup Stlying////////////////////////////////////////
 .Form {
   display: flex;
